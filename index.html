@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <script>
+      // Grab everything after the #
+      const hash = window.location.hash;
+
+      // Redirect into the mobile app
+      window.location.href = `hisworks://auth/callback${hash}`;
+    </script>
+  </head>
+  <body>
+    <p>Redirecting you back to the app...</p>
+  </body>
+</html>
