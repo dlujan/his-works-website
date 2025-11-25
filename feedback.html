@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback</title>
+  </head>
+  <body>
+    <script>
+      // ------------------------------------
+      // 1. Parse URL parameters
+      // ------------------------------------
+      const params = new URLSearchParams(window.location.search);
+
+      const userId = params.get("id");
+      const email = params.get("email");
+      const firstName = params.get("firstName");
+      const avatar = params.get("avatar");
+
+      // ------------------------------------
+      // 2. Setup UserJot queue loader
+      // ------------------------------------
+      window.$ujq = window.$ujq || [];
+      window.uj =
+        window.uj ||
+        new Proxy(
+          {},
+          {
+            get:
+              (_, p) =>
+              (...a) =>
+                window.$ujq.push([p, ...a]),
+          }
+        );
+
+      // Load SDK
+      document.head.appendChild(
+        Object.assign(document.createElement("script"), {
+          src: "https://cdn.userjot.com/sdk/v2/uj.js",
+          type: "module",
+          async: true,
+        })
+      );
+    </script>
+
+    <script>
+      // ------------------------------------
+      // 3. Initialize UserJot
+      // ------------------------------------
+      window.uj.init("cmidyxs7d005m15nqpp6q0oji", {
+        widget: true,
+        position: "right",
+        theme: "auto",
+      });
+    </script>
+
+    <script>
+      // ------------------------------------
+      // 4. Identify the user
+      // Only run if we have at least an id
+      // ------------------------------------
+      if (userId) {
+        window.uj.identify({
+          id: userId,
+          email,
+          firstName,
+          lastName: "",
+          avatar,
+        });
+      }
+    </script>
+
+    <script>
+      // ------------------------------------
+      // 5. Auto navigate to UserJot page
+      // ------------------------------------
+      window.location.href = "https://hisworks.userjot.com";
+    </script>
+  </body>
+</html>
