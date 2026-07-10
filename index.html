@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Prayer Journal - HisWorks</title>
+    <title>Redirecting...</title>
+    <script>
+      // Grab everything after the #
+      const hash = window.location.hash;
+
+      // Redirect into the mobile app
+      //   window.location.href = `exp://192.168.1.221:8081/--/confirm-email${hash}`;
+      window.location.href = `hisworks://confirm-email${hash}`;
+    </script>
   </head>
   <body>
-    <p>HisWorks</p>
+    <p>Redirecting you back to the app...</p>
   </body>
 </html>
