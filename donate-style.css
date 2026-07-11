@@ -60,7 +60,7 @@
   display: grid;
   width: 72px;
   height: 72px;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
   place-items: center;
   border-radius: 22px;
 }
@@ -211,6 +211,64 @@
   padding-left: 30px;
 }
 
+/* Monthly section */
+
+.monthly-support-section {
+  padding: 20px 0 70px;
+}
+
+.monthly-support-section .narrow {
+  margin: 0 auto;
+}
+
+.monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 54px;
+}
+
+.monthly-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 32px;
+  text-align: center;
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  background: var(--surface);
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.monthly-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(54, 36, 26, 0.08);
+  border: 1px solid var(--primary);
+}
+
+.price {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--dark);
+}
+
+.frequency {
+  margin-top: 6px;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.monthly-card p {
+  margin-top: 24px;
+  color: var(--ink-muted);
+}
+
 /* Thank-you section */
 
 .thank-you-section {
@@ -268,27 +326,138 @@
   }
 }
 
-@media (max-width: 640px) {
+/* ========================================
+   Donate page responsive styles
+   Keep these at the bottom of the file
+======================================== */
+
+@media (max-width: 900px) {
   .donate-hero {
-    padding: 58px 0 80px;
+    padding: 72px 0 90px;
+  }
+
+  .donate-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .donate-copy {
+    width: 100%;
+    text-align: center;
   }
 
   .donate-copy h1 {
-    font-size: clamp(2.65rem, 14vw, 4.1rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .donate-copy > p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .donate-copy .hero-actions {
+    justify-content: center;
+  }
+
+  .support-card {
+    width: min(100%, 620px);
+    margin: 0 auto;
+  }
+
+  .impact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .donation-panel {
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .donation-copy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .donation-action {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .donation-action .button {
+    width: 100%;
+  }
+
+  .monthly-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .donate-hero {
+    padding: 52px 0 72px;
+  }
+
+  .donate-hero-inner {
+    gap: 36px;
+  }
+
+  .donate-copy h1 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
   }
 
   .donate-copy > p {
     font-size: 1rem;
   }
 
+  .donate-copy .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .donate-copy .hero-actions .button {
+    width: 100%;
+  }
+
   .support-card,
   .impact-card,
   .donation-panel,
   .thank-you-card {
-    padding: 28px;
+    padding: 26px;
   }
 
-  .donation-action span {
+  .support-card {
+    border-radius: 24px;
+  }
+
+  .support-quote {
+    font-size: 1.08rem;
+  }
+
+  .impact-grid {
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .donation-section {
+    padding: 10px 0 76px;
+  }
+
+  .donation-panel {
+    gap: 32px;
+    border-radius: 24px;
+  }
+
+  .donation-action {
     text-align: center;
+  }
+
+  .thank-you-section {
+    padding-bottom: 76px;
+  }
+
+  .thank-you-card {
+    border-radius: 24px;
   }
 }
