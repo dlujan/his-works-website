@@ -337,6 +337,7 @@ a {
 .section {
   padding: 100px 0;
 }
+.section h1,
 .section h2,
 .cta-card h2 {
   font-size: clamp(2.2rem, 4vw, 4rem);
